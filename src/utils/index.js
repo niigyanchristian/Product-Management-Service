@@ -104,7 +104,7 @@ module.exports.SubscribeMessage = async (channel, service) => {
   const q = await channel.assertQueue("PRODUCT_QUEUE", { exclusive: false });
   console.log(` Waiting for messages in queue: ${q.queue}`);
 
-  channel.bindQueue(q.queue, EXCHANGE_NAME, CUSTOMER_SERVICE);
+  channel.bindQueue(q.queue, EXCHANGE_NAME, PRODUCT_SERVICE);
 
   channel.consume(
     q.queue,
